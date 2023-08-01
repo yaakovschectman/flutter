@@ -500,6 +500,7 @@ mixin ServicesBinding on BindingBase, SchedulerBinding {
   @protected
   Future<void> initializationComplete() async {
     await SystemChannels.platform.invokeMethod('System.initializationComplete');
+    await SystemChannels.lifecycle.send('setLifecycleStateEnabled');
   }
 }
 
